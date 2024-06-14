@@ -1,6 +1,11 @@
 * {
     font-family: sans-serif;
 }
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 .main-text {
     color: green;
@@ -16,4 +21,29 @@ main {
 
 footer {
     text-align: center;
+}
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+    height: 20px;
+}
+
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }

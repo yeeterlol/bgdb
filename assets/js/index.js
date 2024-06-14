@@ -20,7 +20,7 @@ async function urlshenanigans(url) {
         const data = await fetch(`https://api.github.com/repos${pathname}/releases/latest`)
         if (!data.ok) { 
             if (data.status === 404) {
-                alert('no precompiled exe....')
+                alert('there is no releases')
                 return "precompiled exe"
             }
 
@@ -31,7 +31,38 @@ async function urlshenanigans(url) {
         }
         
         const json = await data.json();
+          
+        // const json = await data.json();
+        console.log(json.assets);
+        if (json.assets.length === 0) {
+            alert("no precompiled exe, only source. you probably don't need source if your using this tool :3")
+            return "a"
+        }
         
+        for (let i = 0; i < json.assets.length; i++) {
+            // console.log(json.assets[i]);
+            let b = document.createElement("div");
+            b.className = "item"
+            let p = document.createElement("p");
+            p.textContent = json.assets[i].name;
+        
+            let a = document.createElement("a");
+            a.href = json.assets[i].browser_download_url;
+            a.textContent = "Download";
+            a.className = "button";
+
+            b.append(p);
+            b.append(a);
+
+            let div = document.getElementById("list");
+            div.append(b);
+        }
+
+        
+        
+        
+        text.textContent = "";
+        // text.textContent = "";
 
     } catch (error) {
         alert("[!] error: broken url")
