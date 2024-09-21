@@ -31,9 +31,7 @@ async function urlshenanigans(url) {
         }
         
         const json = await data.json();
-          
-        // const json = await data.json();
-        console.log(json.assets);
+        
         if (json.assets.length === 0) {
             alert("no precompiled exe, only source. you probably don't need source if your using this tool :3")
             return "a"
